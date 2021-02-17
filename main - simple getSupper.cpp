@@ -6,7 +6,16 @@
 /*******************************************************************************
 **  Interface  (Generalization)
 *******************************************************************************/
-/* INFORMATION: Interfaces are classes that only contain pure virtual functions. The "virtual" keyword denotes that the function is virtual and therefore can be overriden, and the "= 0" denotes that the function is pure. Because of the existence of a pure virtual function, an object/instance of this class can't be created, even if the pure virtual function is defined for the class (which you totally should not do); classes that derive from this class must override and define these pure virtual functions if they do not wish to suffer the same fate. Also, the "const" keyword is used here to ensure that the function is not granted permission to change the attributes of its class. */
+/* INFORMATION: Interfaces are classes that only contain pure virtual 
+functions. The "virtual" keyword denotes that the function is virtual and 
+therefore can be overriden, and the "= 0" denotes that the function is 
+pure. Because of the existence of a pure virtual function, an 
+object/instance of this class can't be created, even if the pure virtual 
+function is defined for the class (which you totally should not do); 
+classes that derive from this class must override and define these pure 
+virtual functions if they do not wish to suffer the same fate. Also, the 
+"const" keyword is used here to ensure that the function is not granted 
+permission to change the attributes of its class. */
 class Person
 {
   public:
@@ -27,7 +36,19 @@ inline Person::~Person() = default;
 class Wife : public Person
 {
   public:
-    /* INFORMATION: This is a default constructor; all parameters in this constructor have default values, should no values be provided by the programmer. The "const" keyword is also used here, this time to denote that this variable's value is not allowed to change during the function. We can also see that the "&" character is being used here, for optimization. This means that, should the programmer provide a value, that value will be passed by reference. In other words, the constructor will receive the value, rather than a copy of the value. So since we're not manipulating a copy of the value, any changes to the value in the function will persist even after the function finishes. Finally, note that an initialization list is being used here after the ":" character instead of assignment, again. It's good practice. */
+    /* INFORMATION: This is a default constructor; all parameters in this 
+    constructor have default values, should no values be provided by the 
+    programmer. The "const" keyword is also used here, this time to denote 
+    that this variable's value is not allowed to change during the 
+    function. We can also see that the "&" character is being used here, 
+    for optimization. This means that, should the programmer provide a 
+    value, that value will be passed by reference. In other words, the 
+    constructor will receive the value, rather than a copy of the value. 
+    So since we're not manipulating a copy of the value, any changes to 
+    the value in the function will persist even after the function 
+    finishes. Finally, note that an initialization list is being used here 
+    after the ":" character instead of assignment, again. It's good 
+    practice to use an initialization list instead of assignment. */
     Wife( const std::string & name = "Mom" )
       : _name( name )
     {}
